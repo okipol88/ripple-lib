@@ -19,7 +19,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.85",
     "@types/ws": "^3.2.0",
-    "bignumber.js": "^4.1.0",
+    "bignumber.js": "^8.0.0",
     "https-proxy-agent": "2.2.1",
     "jsonschema": "1.2.2",
     "lodash": "^4.17.4",
@@ -27,7 +27,7 @@
     "ripple-binary-codec": "0.2.1",
     "ripple-hashes": "0.3.2",
     "ripple-keypairs": "^0.10.1",
-    "ripple-lib-transactionparser": "0.7.1",
+    "ripple-lib-transactionparser": "^0.8.0",
     "ws": "^3.3.1"
   },
   "devDependencies": {
@@ -61,10 +61,10 @@
     "doctoc": "doctoc docs/index.md --title '# RippleAPI Reference' --github --maxlevel 2",
     "docgen": "node --harmony scripts/build_docs.js",
     "clean": "rm -rf dist/npm",
-    "compile": "mkdir -p dist/npm/common && cp -r src/common/schemas dist/npm/common/ && tsc --build",
+    "compile": "tsc --build",
     "watch": "tsc -w",
     "prepublish": "npm run clean && npm run compile && npm run build",
-    "test": "TS_NODE_PROJECT=src/tsconfig.json nyc mocha --exit",
+    "test": "SET TS_NODE_PROJECT=src/tsconfig.json nyc mocha --exit",
     "lint": "tslint -p ./",
     "perf": "./scripts/perf_test.sh",
     "start": "node scripts/http.js",
